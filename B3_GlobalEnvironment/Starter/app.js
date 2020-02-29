@@ -1,30 +1,16 @@
-function a() {
-    console.log(this);
-}
+var arr = [1,
+           false,
+           {
+               name: 'Tony',
+               addres: '111 Main St.'
+           },
+           function(name) {
+               var greeting = 'Hello';
+               console.log(greeting+ " " + name);
+           },
+           "hello"
+          ];
 
-var b = function(){
-    console.log(this);
-}
+console.log(arr);
+arr[3](arr[2].name)
 
-a();
-b();
-
-
-var c = {
-    name: 'The c object',
-    log: function() {
-        var self = this;        
-        
-        self.name = 'Updated c object';
-        console.log(this);
-        
-        var setname = function(newname) {
-            self.name = newname;
-        }
-        setname('Updated again! The c object');
-        console.log(self);
-    }
-    
-}
-
-c.log();
